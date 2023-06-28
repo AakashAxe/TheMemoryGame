@@ -10,10 +10,11 @@ const StartScreen = () => {
     return (
         
         <div>
+            <h1>The Memory Game</h1>
             <FormGroup>
-                <ChildCheckBox/>
+                <ChildCheckBox />
             </FormGroup>
-            <Link to="/game"><Button variant="contained">Start Game</Button></Link>
+            
         </div>
     )
 }

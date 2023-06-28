@@ -10,7 +10,7 @@ function App() {
       <header className="App-header">
         <BrowserRouter>
           <Routes>
-            <Route path='/game' element={<Game/>}/>
+            <Route path='/game/:levelId' element={<Game/>}/>
             <Route index element={<StartScreen />}/>
           </Routes>
         </BrowserRouter>

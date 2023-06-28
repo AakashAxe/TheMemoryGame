@@ -1,6 +1,8 @@
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import React, { useState } from "react";
+import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
 /*
 ISSUE: 
@@ -17,19 +19,19 @@ const initialCheckBoxStates = [
 
 const ChildCheckBox = () => {
   const [diffs, setDiff] = useState(initialCheckBoxStates);
-
+  const [selected, setSelected] = useState(null);
   const handleChange = (id) => {
     let newLevels = diffs.slice();
     console.log(newLevels);
     // Set id to !selected
     newLevels.map((element) => (element.selected = element.id === id));
-
+    setSelected(id)
     // Set New Levels
     setDiff(newLevels);
   };
 
   console.log("Rendered");
-
+  
   return (
     <div>
       {diffs.map((element, index) => {
@@ -45,6 +47,12 @@ const ChildCheckBox = () => {
           />
         );
       })}
+      <br />
+      <Link to={`/game/${selected}`}>
+         {selected == null ? <Button variant="contained" disabled >Start Game</Button> : <Button variant="contained" >Start Game</Button>}
+        
+        
+      </Link>
     </div>
   );
 };
